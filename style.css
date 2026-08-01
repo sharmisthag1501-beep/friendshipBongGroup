@@ -1,0 +1,904 @@
+/* =======================================
+   OUR TRAVEL DIARY
+   ======================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:linear-gradient(
+180deg,
+#EAF8FF 0%,
+#FFF8EC 35%,
+#FFE6D5 70%,
+#FFFDFB 100%
+);
+
+overflow-x:hidden;
+
+color:#444;
+
+}
+
+/* =========================
+Floating Background
+========================= */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background-image:
+
+radial-gradient(circle,#ffffff 2px,transparent 2px),
+radial-gradient(circle,#ffffff 2px,transparent 2px);
+
+background-size:140px 140px;
+
+opacity:.35;
+
+pointer-events:none;
+
+z-index:-2;
+
+}
+
+/* =========================
+Floating Icons
+========================= */
+
+.floating-icons{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+/* =========================
+Hero
+========================= */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:60px 8%;
+
+}
+
+.hero-card{
+
+max-width:900px;
+
+background:rgba(255,255,255,.82);
+
+backdrop-filter:blur(15px);
+
+padding:80px;
+
+border-radius:35px;
+
+text-align:center;
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.08);
+
+border:3px solid rgba(255,255,255,.9);
+
+}
+
+.travel-tag{
+
+display:inline-block;
+
+padding:10px 24px;
+
+background:#FFF2C9;
+
+color:#D48A00;
+
+border-radius:40px;
+
+font-weight:600;
+
+margin-bottom:25px;
+
+}
+
+.hero h1{
+
+font-family:'Caveat',cursive;
+
+font-size:76px;
+
+color:#FF6B6B;
+
+margin-bottom:20px;
+
+}
+
+.hero h2{
+
+font-size:30px;
+
+font-weight:600;
+
+color:#4F709C;
+
+margin-bottom:30px;
+
+}
+
+.hero-text{
+
+font-size:22px;
+
+line-height:2;
+
+color:#555;
+
+margin-bottom:45px;
+
+}
+
+button{
+
+padding:18px 45px;
+
+border:none;
+
+border-radius:50px;
+
+background:linear-gradient(
+135deg,
+#FF8A65,
+#FFB74D
+);
+
+color:white;
+
+font-size:18px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.35s;
+
+box-shadow:
+
+0 15px 35px rgba(255,152,0,.25);
+
+}
+
+button:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+
+0 20px 45px rgba(255,152,0,.35);
+
+}
+/* =======================================
+LETTER
+======================================= */
+
+#letter{
+
+padding:120px 8%;
+
+}
+
+.letter-card{
+
+max-width:950px;
+
+margin:auto;
+
+background:white;
+
+padding:70px;
+
+border-radius:35px;
+
+box-shadow:
+
+0 25px 50px rgba(0,0,0,.08);
+
+border:3px dashed #FFD180;
+
+position:relative;
+
+}
+
+.letter-card::before{
+
+content:"📮";
+
+position:absolute;
+
+top:-25px;
+
+right:30px;
+
+font-size:55px;
+
+}
+
+.letter-card h2{
+
+font-family:'Caveat',cursive;
+
+font-size:56px;
+
+text-align:center;
+
+color:#FF7043;
+
+margin-bottom:30px;
+
+}
+
+.letter-card p{
+
+font-size:20px;
+
+line-height:2;
+
+text-align:center;
+
+margin-bottom:22px;
+
+color:#555;
+
+}
+
+.letter-card strong{
+
+color:#FF7043;
+
+}
+
+/* =======================================
+SECTION TITLE
+======================================= */
+
+.section-title{
+
+text-align:center;
+
+margin-bottom:80px;
+
+}
+
+.section-title h1{
+
+font-family:'Caveat',cursive;
+
+font-size:62px;
+
+color:#4F709C;
+
+margin-bottom:15px;
+
+}
+
+.section-title p{
+
+font-size:20px;
+
+color:#666;
+
+}
+
+/* =======================================
+TIMELINE
+======================================= */
+
+.timeline{
+
+max-width:1200px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:80px;
+
+}
+
+/* =======================================
+TRAVEL MEMORY
+======================================= */
+
+.memory{
+
+display:flex;
+
+align-items:center;
+
+gap:50px;
+
+background:white;
+
+padding:25px;
+
+border-radius:30px;
+
+box-shadow:
+
+0 18px 45px rgba(0,0,0,.08);
+
+transition:.4s;
+
+}
+
+.memory:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 30px 55px rgba(0,0,0,.12);
+
+}
+
+.memory.left{
+
+flex-direction:row;
+
+}
+
+.memory.right{
+
+flex-direction:row-reverse;
+
+}
+
+/* =======================================
+PHOTO FRAME
+======================================= */
+
+.memory img{
+
+width:330px;
+
+height:330px;
+
+object-fit:cover;
+
+padding:12px;
+
+background:white;
+
+border-radius:12px;
+
+box-shadow:
+
+0 12px 30px rgba(0,0,0,.15);
+
+transform:rotate(-2deg);
+
+transition:.4s;
+
+}
+
+.memory:hover img{
+
+transform:rotate(0deg) scale(1.04);
+
+}
+
+/* =======================================
+CONTENT
+======================================= */
+
+.content{
+
+flex:1;
+
+}
+
+.content h3{
+
+display:inline-block;
+
+background:#FFF2C9;
+
+color:#D48A00;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+margin-bottom:18px;
+
+font-size:15px;
+
+}
+
+.content h2{
+
+font-family:'Caveat',cursive;
+
+font-size:42px;
+
+color:#FF7043;
+
+margin-bottom:20px;
+
+}
+
+.content p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#555;
+
+}
+
+/* =======================================
+QUOTE
+======================================= */
+
+.quote{
+
+max-width:850px;
+
+margin:auto;
+
+padding:40px;
+
+text-align:center;
+
+background:linear-gradient(
+135deg,
+#FFE0B2,
+#FFF8E1
+);
+
+border-left:8px solid #FF9800;
+
+border-radius:25px;
+
+font-family:'Caveat',cursive;
+
+font-size:34px;
+
+color:#E65100;
+
+box-shadow:
+
+0 15px 35px rgba(255,152,0,.15);
+
+}
+/* =======================================
+FRIENDSHIP DAY SECTION
+======================================= */
+
+#friendship{
+
+padding:130px 8%;
+
+}
+
+.friendship-card{
+
+max-width:950px;
+
+margin:auto;
+
+background:white;
+
+padding:80px;
+
+border-radius:35px;
+
+text-align:center;
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.08);
+
+border:3px solid #FFE0B2;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.friendship-card::before{
+
+content:"✈️";
+
+position:absolute;
+
+top:30px;
+
+left:35px;
+
+font-size:40px;
+
+opacity:.15;
+
+}
+
+.friendship-card::after{
+
+content:"📍";
+
+position:absolute;
+
+bottom:30px;
+
+right:35px;
+
+font-size:40px;
+
+opacity:.15;
+
+}
+
+.friendship-card h1{
+
+font-family:'Caveat',cursive;
+
+font-size:70px;
+
+color:#FF7043;
+
+margin-bottom:35px;
+
+}
+
+.friendship-card h2{
+
+font-family:'Caveat',cursive;
+
+font-size:46px;
+
+color:#4F709C;
+
+margin:50px 0 30px;
+
+}
+
+.friendship-card p{
+
+font-size:20px;
+
+line-height:2;
+
+color:#555;
+
+margin-bottom:22px;
+
+}
+
+/* =======================================
+HIGHLIGHT BOX
+======================================= */
+
+.highlight-box{
+
+margin:60px 0;
+
+padding:35px;
+
+background:linear-gradient(
+135deg,
+#FFE0B2,
+#FFF3E0
+);
+
+border-radius:25px;
+
+font-size:28px;
+
+font-family:'Caveat',cursive;
+
+color:#E65100;
+
+line-height:1.8;
+
+box-shadow:
+
+0 18px 35px rgba(255,152,0,.15);
+
+}
+
+.sign{
+
+font-family:'Caveat',cursive;
+
+font-size:40px;
+
+color:#FF7043;
+
+margin-top:40px;
+
+}
+
+/* =======================================
+FOOTER
+======================================= */
+
+footer{
+
+margin-top:100px;
+
+padding:70px 20px;
+
+background:linear-gradient(
+135deg,
+#4F709C,
+#6FA8DC
+);
+
+text-align:center;
+
+color:white;
+
+}
+
+.footer-content h2{
+
+font-family:'Caveat',cursive;
+
+font-size:42px;
+
+margin-bottom:20px;
+
+}
+
+.footer-content p{
+
+font-size:18px;
+
+line-height:1.8;
+
+margin-bottom:10px;
+
+}
+
+.footer-end{
+
+margin-top:20px;
+
+font-weight:600;
+
+font-size:20px;
+
+}
+
+/* =======================================
+ANIMATIONS
+======================================= */
+
+.hidden{
+
+opacity:0;
+
+transform:translateY(60px);
+
+transition:all 1s ease;
+
+}
+
+.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+.memory{
+
+animation:floatCard 6s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+.quote{
+
+animation:quoteGlow 4s ease-in-out infinite alternate;
+
+}
+
+@keyframes quoteGlow{
+
+from{
+
+box-shadow:0 0 15px rgba(255,152,0,.15);
+
+}
+
+to{
+
+box-shadow:0 0 35px rgba(255,152,0,.3);
+
+}
+
+}
+
+/* =======================================
+RESPONSIVE
+======================================= */
+
+@media(max-width:900px){
+
+.hero-card{
+
+padding:45px 25px;
+
+}
+
+.hero h1{
+
+font-size:54px;
+
+}
+
+.hero h2{
+
+font-size:24px;
+
+}
+
+.hero-text{
+
+font-size:18px;
+
+}
+
+.letter-card{
+
+padding:40px 25px;
+
+}
+
+.letter-card h2{
+
+font-size:42px;
+
+}
+
+.memory,
+
+.memory.left,
+
+.memory.right{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.memory img{
+
+width:100%;
+
+max-width:320px;
+
+height:auto;
+
+}
+
+.content h2{
+
+font-size:34px;
+
+}
+
+.content p{
+
+font-size:17px;
+
+}
+
+.quote{
+
+font-size:26px;
+
+padding:30px;
+
+}
+
+.friendship-card{
+
+padding:45px 25px;
+
+}
+
+.friendship-card h1{
+
+font-size:50px;
+
+}
+
+.friendship-card h2{
+
+font-size:36px;
+
+}
+
+.highlight-box{
+
+font-size:22px;
+
+padding:25px;
+
+}
+
+.sign{
+
+font-size:32px;
+
+}
+
+.footer-content h2{
+
+font-size:34px;
+
+}
+
+}
